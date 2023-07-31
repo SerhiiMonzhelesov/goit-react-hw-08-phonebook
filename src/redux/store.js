@@ -1,8 +1,36 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { contactsReducer } from './phonebookSlice';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const store = configureStore({
-  reducer: contactsReducer,
+import { contactsReducer } from './phonebookSlice';
+import { userReducer } from './userSlice';
+
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['token'],
+};
+
+export const store = configureStore({
+  reducer: {
+    user: persistReducer(userPersistConfig, userReducer),
+    contacts: contactsReducer,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-export default store;
+export const persistor = persistStore(store);
