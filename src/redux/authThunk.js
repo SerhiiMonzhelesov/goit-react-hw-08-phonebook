@@ -24,6 +24,6 @@ export const refreshUserThunk = createAsyncThunk(
   'user/refreshUserThunk',
   async token => {
     setToken(token);
-    currentUserRequest();
+    return await currentUserRequest();
   }
 );

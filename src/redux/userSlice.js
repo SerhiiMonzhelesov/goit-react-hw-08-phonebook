@@ -24,7 +24,6 @@ const userSlice = createSlice({
         state.token = action.payload.token;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
-        console.log('LOGIN: ', action.payload);
         state.isLoading = false;
         state.userData = action.payload.user;
         state.token = action.payload.token;
@@ -35,7 +34,6 @@ const userSlice = createSlice({
         state.token = null;
       })
       .addCase(refreshUserThunk.fulfilled, (state, action) => {
-        console.log('REFRESH: ', action.payload);
         state.isLoading = false;
         state.userData = action.payload;
       })

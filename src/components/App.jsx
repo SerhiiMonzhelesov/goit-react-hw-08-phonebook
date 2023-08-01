@@ -10,6 +10,9 @@ import HomePage from 'pages/HomePage';
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
 import ContactsPage from 'pages/ContactsPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshUserThunk } from 'redux/authThunk';
 
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useEffect } from 'react';
@@ -55,6 +58,13 @@ function App() {
   //   );
   //   return filteredContacts;
   // };
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.user.token);
+
+  useEffect(() => {
+    if (!token) return;
+    dispatch(refreshUserThunk(token));
+  }, [token, dispatch]);
 
   return (
     <Routes>
