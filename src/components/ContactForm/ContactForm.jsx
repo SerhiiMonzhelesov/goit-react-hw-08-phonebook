@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import StyledContactForm from './StyledContactForm';
 import PropTypes from 'prop-types';
 
 function ContactForm({ onAddContact }) {
-  const [newUser, setnewUser] = useState({ name: '', phone: '' });
+  const [newUser, setnewUser] = useState({ name: '', number: '' });
 
   const onInputChange = e => {
     setnewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -19,7 +18,7 @@ function ContactForm({ onAddContact }) {
 
   return (
     <>
-      <StyledContactForm onSubmit={onFormSubmit}>
+      <form onSubmit={onFormSubmit} className="form-signin">
         <label>
           Name:
           <input
@@ -39,7 +38,7 @@ function ContactForm({ onAddContact }) {
           <input
             onChange={onInputChange}
             type="tel"
-            name="phone"
+            name="number"
             maxLength="12"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -47,7 +46,7 @@ function ContactForm({ onAddContact }) {
           />
         </label>
         <button type="submit">Add contact</button>
-      </StyledContactForm>
+      </form>
     </>
   );
 }

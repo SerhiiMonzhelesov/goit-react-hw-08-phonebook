@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-// const instance = axios.create({
-//   baseURL: 'https://64c53024c853c26efada9824.mockapi.io',
-// });
-
 const instance = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
@@ -36,7 +32,6 @@ export const logOutRequest = async () => {
 
 export const currentUserRequest = async () => {
   const { data } = await instance.get('/users/current');
-
   return data;
 };
 

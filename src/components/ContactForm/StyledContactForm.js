@@ -4,7 +4,6 @@ const StyledContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 25px;
-  /* align-items: center; */
   width: 100%;
   border: 1px solid #cce2ce4d;
   border-radius: 8px;

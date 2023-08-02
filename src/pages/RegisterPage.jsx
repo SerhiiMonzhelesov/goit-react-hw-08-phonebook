@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { registerThunk } from 'redux/authThunk';
+import { registerThunk } from 'redux/Thunk/userThunk';
+
+import Container from 'components/Container/Container';
+import StyledSection from './StyledSection';
 
 function RegisterPage() {
   const dispatch = useDispatch();
@@ -26,24 +29,26 @@ function RegisterPage() {
   };
 
   return (
-    <>
-      <h1>Register Account</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name"></input>
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email"></input>
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" minLength={7}></input>
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+    <StyledSection>
+      <Container>
+        <h1>Register Account</h1>
+        <form onSubmit={handleSubmit} className="form-signin">
+          <label>
+            Name:
+            <input type="text" name="name"></input>
+          </label>
+          <label>
+            Email:
+            <input type="email" name="email"></input>
+          </label>
+          <label>
+            Password:
+            <input type="password" name="password" minLength={7}></input>
+          </label>
+          <button type="submit">Sign Up</button>
+        </form>
+      </Container>
+    </StyledSection>
   );
 }
 

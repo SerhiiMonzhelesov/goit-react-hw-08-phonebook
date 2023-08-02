@@ -5,22 +5,9 @@ const StyledContacts = styled.ul`
   flex-direction: column;
   gap: 10px;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   width: 100%;
   max-width: 400px;
-
-  & button {
-    border: none;
-    background-color: inherit;
-    padding: 0;
-    display: flex;
-    cursor: pointer;
-    color: #9e9a9a;
-  }
-
-  & button:hover {
-    color: #f26969;
-  }
 
   & .icon {
     color: inherit;

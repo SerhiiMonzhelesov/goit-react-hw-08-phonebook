@@ -1,12 +1,15 @@
-import StyledFilter from './StyledFilter';
 import PropTypes from 'prop-types';
 
 function Filter({ handleChangeFilter }) {
   return (
-    <StyledFilter>
+    <label className="filter-label">
       Find contacts by name
-      <input type="text" onChange={handleChangeFilter}></input>
-    </StyledFilter>
+      <input
+        type="text"
+        onChange={handleChangeFilter}
+        className="filter-input"
+      ></input>
+    </label>
   );
 }
 

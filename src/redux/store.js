@@ -11,8 +11,9 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { contactsReducer } from './phonebookSlice';
-import { userReducer } from './userSlice';
+import { contactsReducer } from './Slice/phonebookSlice';
+import { userReducer } from './Slice/userSlice';
+import { rootReducer } from './root/rootSlice';
 
 const userPersistConfig = {
   key: 'user',
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     user: persistReducer(userPersistConfig, userReducer),
     contacts: contactsReducer,
+    root: rootReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

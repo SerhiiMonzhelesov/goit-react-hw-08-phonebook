@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 function Contacts({ contacts, onRemoveContact }) {
   return (
     <StyledContacts>
-      {contacts.map(({ name, phone, id }) => {
+      {contacts.map(({ name, number, id }) => {
         return (
           <li key={id} className="item">
             <p className="text">{name}</p>
-            <p>{phone}</p>
+            <p>{number}</p>
             <button
               type="button"
               onClick={() => onRemoveContact(id)}
-              className="btn"
+              className="delete-btn"
             >
               <ImBin className="icon" />
             </button>
@@ -31,7 +31,7 @@ Contacts.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
   onRemoveContact: PropTypes.func.isRequired,

@@ -1,12 +1,19 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { refreshUserThunk } from 'redux/authThunk';
+import Container from 'components/Container/Container';
+import StyledSection from './StyledSection';
 
 function HomePage() {
   return (
-    <>
-      <h1>THIS IS HOMEPAGE.</h1>
-    </>
+    <StyledSection>
+      <Container>
+        <h1>PHONEBOOK</h1>
+        <p className="home-text">
+          This application is designed to manage your contacts. In order to
+          start using the application, register. You will be able to add, delete
+          and filter the necessary contacts. If you are already registered - log
+          in.
+        </p>
+      </Container>
+    </StyledSection>
   );
 }
 
