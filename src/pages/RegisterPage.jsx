@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { registerThunk } from 'redux/Thunk/userThunk';
 
 import Container from 'components/Container/Container';
@@ -8,13 +6,6 @@ import StyledSection from './StyledSection';
 
 function RegisterPage() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const userData = useSelector(state => state.user.userData);
-
-  useEffect(() => {
-    if (!userData) return;
-    navigate('/contacts', { replace: true });
-  }, [navigate, userData]);
 
   const handleSubmit = e => {
     e.preventDefault();

@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logOutThunk } from 'redux/Thunk/userThunk';
+import PropTypes from 'prop-types';
+
 import StyledUserMenu from './StyledUserMenu';
 
 function UserMenu({ userEmail }) {
@@ -20,3 +22,7 @@ function UserMenu({ userEmail }) {
 }
 
 export default UserMenu;
+
+UserMenu.propTypes = {
+  userEmail: PropTypes.string.isRequired,
+};
