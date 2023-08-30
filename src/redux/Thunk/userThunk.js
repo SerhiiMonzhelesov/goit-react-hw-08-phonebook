@@ -6,7 +6,6 @@ import {
   registerRequest,
   setToken,
 } from 'services/api';
-
 export const registerThunk = createAsyncThunk(
   'user/registerThunk',
   async formData => registerRequest(formData)

@@ -43,7 +43,6 @@ export const contactsRequest = async () => {
 };
 
 export const addNewContactRequest = async contactData => {
-  console.log(contactData);
   const { data } = await instance.post('/contacts', contactData);
   return data;
 };

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const PrivateRoute = ({ children }) => {
   const token = useSelector(selectToken);
-  return token ? children : <Navigate to="/" />;
+  return token ? children : <Navigate to="/home" />;
 };
 
 PrivateRoute.propTypes = {
